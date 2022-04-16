@@ -1,0 +1,9 @@
+# syntax=docker/dockerfile:1
+FROM recondockeradmin/ddev-app
+
+#RUN sed -i "s|#master: salt|master: salt-master|g" /etc/salt/minion
+
+#COPY ddev-app-minion /etc/salt/minion
+
+#ENTRYPOINT ["salt-minion"]
+

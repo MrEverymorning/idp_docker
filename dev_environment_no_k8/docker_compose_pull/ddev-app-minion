@@ -1,0 +1,14 @@
+master: salt-master
+id: ddev-app
+
+saltenv: base
+grains:
+  dev: True
+  roles:
+    - nagios_client
+    - frontend
+    - webapp
+    - workers
+#    - openvpn_client
+  swapfile:
+    size: 1024

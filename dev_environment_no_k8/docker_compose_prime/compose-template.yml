@@ -1,0 +1,39 @@
+version: '3.3'
+
+services:
+  project_name-core:
+    hostname: project_name-core
+    container_name: project_name-core
+    image: recondockeradmin/project_image-core
+    networks:
+      - salt-master
+      - project_name
+  project_name-app:
+    hostname: project_name-app
+    container_name: project_name-app
+    image: recondockeradmin/project_image-app
+    networks:
+      - salt-master
+      - project_name
+    expose: 
+      - "80"
+      - "443"
+    ports:
+      - "port_1:80"
+      - "port_2:443"
+    volumes:
+        - ~/recon/tv/tvapi:/opt/recon/tv/webapp/src/tvapi:rw
+        - ~/recon/tv/tvcommon:/opt/recon/tv/webapp/src/tvcommon:rw
+        - ~/recon/tv/tvclient:/opt/recon/tv/webapp/src/tvclient:rw
+        - ~/recon/tv/ballpark:/opt/recon/tv/webapp/src/ballpark:rw
+        - ~/recon/tv/mfgtest:/opt/recon/tv/webapp/src/mfgtest:rw
+        - ~/recon/tv/tvwebapp:/opt/recon/tv/webapp/src/tvwebapp:rw
+        - ~/recon/tv/python-packages:/opt/recon/tv/webapp/src/python-packages:rw
+        - ~/recon/tv/python3-packages:/opt/recon/tv/webapp/src/python3-packages:rw
+        - ~/recon/tv/tvproxbox:/opt/recon/tv/proxbox/src/tvproxbox:rw
+
+networks:
+  salt-master:
+    external: true
+  project_name:
+    external: true

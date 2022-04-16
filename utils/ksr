@@ -1,0 +1,10 @@
+#!/bin/bash
+# Author: Scott Bevan
+# Use: ks <hostname>
+# Example: ks core
+
+#host=`kubectl get pod | grep $1 | cut -d ' ' -f 1`
+#kubectl exec --stdin --tty $host -- /bin/bash
+
+host=`docker ps | grep $1 | awk -F '  +' '{print $1}'`
+docker exec -u 0 -it $host /bin/bash

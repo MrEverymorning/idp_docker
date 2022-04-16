@@ -1,0 +1,10 @@
+# syntax=docker/dockerfile:1
+FROM recondockeradmin/ddev-core
+#RUN apt update && apt install 
+
+#RUN sed -i "s|#master: salt|master: salt-master|g" /etc/salt/minion
+
+#COPY ddev-core-minion /etc/salt/minion
+
+#ENTRYPOINT ["salt-minion"]
+

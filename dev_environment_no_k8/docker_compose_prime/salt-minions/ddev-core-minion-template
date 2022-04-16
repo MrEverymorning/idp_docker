@@ -1,0 +1,20 @@
+#master: saltdeb10.recondynamics.com
+master: 192.168.200.48
+master_port: 32506  #both of these ports are for the master, not the minion
+publish_port: 32505 # the minion is waiting outside the masters door of 32505, waiting for a command
+id: ddev-core
+
+grains:
+  dev: True
+  roles:
+    - nagios_client
+    - postgres
+    - postgres_master
+    - postgres_backup
+    - broker
+#    - vpn_server1
+    - redis
+    - memcached
+
+  swapfile:
+    size: 1024

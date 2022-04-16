@@ -1,0 +1,6 @@
+# syntax=docker/dockerfile:1
+FROM recondockeradmin/salt-master
+
+#RUN sed -i "s|#auto_accept: False|auto_accept: True|g" /etc/salt/master
+
+#ENTRYPOINT ["salt-master", "-l", "debug"]

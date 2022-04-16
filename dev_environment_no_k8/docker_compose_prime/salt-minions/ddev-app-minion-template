@@ -1,0 +1,17 @@
+#master: saltdeb10.recondynamics.com
+master: 192.168.200.48
+master_port: 32506  #both of these ports are for the master, not the minion
+publish_port: 32505 # the minion is waiting outside the masters door of 32505, waiting for a command
+id: ddev-app
+
+saltenv: base
+grains:
+  dev: True
+  roles:
+    - nagios_client
+    - frontend
+    - webapp
+    - workers
+#    - openvpn_client
+  swapfile:
+    size: 1024

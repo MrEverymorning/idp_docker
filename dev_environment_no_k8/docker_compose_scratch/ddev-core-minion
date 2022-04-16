@@ -1,0 +1,16 @@
+master: salt-master
+
+grains:
+  dev: True
+  roles:
+    - nagios_client
+    - postgres
+    - postgres_master
+    - postgres_backup
+    - broker
+#    - vpn_server1
+    - redis
+    - memcached
+
+  swapfile:
+    size: 1024
